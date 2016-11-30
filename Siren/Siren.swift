@@ -314,6 +314,20 @@ public final class Siren: NSObject {
             }
         }
     }
+    
+    func launchAppStore() {
+        guard let appID = appID else {
+            return
+        }
+        
+        let iTunesString =  "https://itunes.apple.com/app/id\(appID)"
+        let iTunesURL = URL(string: iTunesString)
+        
+        DispatchQueue.main.async {
+            UIApplication.shared.openURL(iTunesURL!)
+        }
+        
+    }
 
 }
 
@@ -683,20 +697,6 @@ fileprivate extension Siren {
             updaterWindow.isHidden = true
             self.updaterWindow = nil
         }
-    }
-
-    func launchAppStore() {
-        guard let appID = appID else {
-            return
-        }
-
-        let iTunesString =  "https://itunes.apple.com/app/id\(appID)"
-        let iTunesURL = URL(string: iTunesString)
-
-        DispatchQueue.main.async {
-            UIApplication.shared.openURL(iTunesURL!)
-        }
-        
     }
     
     func printMessage(message: String) {
