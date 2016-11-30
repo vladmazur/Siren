@@ -315,7 +315,7 @@ public final class Siren: NSObject {
         }
     }
     
-    func launchAppStore() {
+    public func launchAppStore() {
         guard let appID = appID else {
             return
         }
